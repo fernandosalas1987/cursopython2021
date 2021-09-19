@@ -123,22 +123,14 @@ Si la división no es exacta, dividimos el divisor entre el resto obtenido
  y se continúa de esta forma hasta obtener una división exacta, siendo el último divisor el MCD.
 Crea un programa principal que lea dos números enteros y muestre el MCD."""
 
-def minimoComun(numero_1,numero_2):
-    mcd=0
-    mayor=0
-    menor=0
-    if numero_1>numero_2:
-        mayor=numero_1
-        menor=numero_2
-    else:
-        mayor=numero_2
-        menor=numero_1
-    resto=mayor%menor
-    if resto==0:
-       mcd=numero_2 
-    else:
-        mcd=minimoComun(menor,resto)
-    return mcd             
+def calcularMCD(numero_1,numero_2):
+	
+	numero_1, num2 = intercambiar(numero_1,numero_2)
+	resto = numero_1 % numero_2
+	if resto == 0: 
+		return numero_2
+	else:
+	  return calcularMCD(numero_2,resto)         
 
 """Ejercicio 10
 Escribir dos funciones que permitan calcular:
@@ -227,14 +219,7 @@ def intercambiar(numero_1,numero_2):
 	else:
 		return numero_1,numero_2
 
-def calcularMCD(numero_1,numero_2):
-	
-	numero_1, num2 = intercambiar(numero_1,numero_2)
-	resto = numero_1 % numero_2
-	if resto == 0: 
-		return numero_2
-	else:
-	  return calcularMCD(numero_2,resto)
+
 
 def LeerFraccion():
 	numerador = int(input("Numerador:"))
@@ -289,19 +274,19 @@ while(salir!=True):
     print("2. NÚMEROS MÚLTIPLO EJERCICIO 2 FUNCIONES")
     print("3. TEMPERATURA MEDIA EJERCICIO 3 FUNCIONES")
     print("4. CONVERTIR ESPACIADO TEXTO EJERCICIO 4 FUNCIONES")
-    print("5. NÚMERO 0-9 EJERCICIO 5 CONTROL DE FLUJO")
-    print("6. LISTAS EJERCICIO 6 CONTROL DE FLUJO")
-    print("7. LISTAS ELEMENTOS ÚNICOS EJERCICIO 7 CONTROL DE FLUJO")
-    print("8. ÁREA DEL RECTÁNGULO EJERCICIO 8 FUNCIONES")
-    print("9. ÁREA DEL CÍRCULO EJERCICIO 2 FUNCIONES")
-    print("10. RELACIÓN DE DOS NÚMEROS EJERCICIO 3 FUNCIONES")
-    print("11. INTERMEDIO EJERCICIO 4 FUNCIONES")
-    print("12. LÍMITES NÚMEROS EJERCICIO 5 FUNCIONES")
-    print("13. LISTAS ORDENADAS PARES E IMPARES EJERCICIO 6 FUNCIONES")
+    print("5. MÁXIMO Y MÍNIMO DE UNA LISTA EJERCICIO 5 FUNCIONES")
+    print("6. DATOS CIRCUNFERENCIA EJERCICIO 6 FUNCIONES")
+    print("7. LOGIN EJERCICIO 7 FUNCIONES")
+    print("8. FACTORIAL DE UN NÚMERO EJERCICIO 8 FUNCIONES")
+    print("9. MCD DE UN NÚMERO EJERCICIO 9 FUNCIONES")
+    print("10. TIEMPOS EJERCICIO 10 FUNCIONES")
+    print("11. DÍA JULIANO EJERCICIO 11 FUNCIONES")
+    print("12. OPERACIONES FRACCIONES EJERCICIO 12 FUNCIONES")
+    
     opcion = int(input("Ingrese la opción correspondiente: "))
 
     if opcion==1:
-        print("****CENTRAR TEXTO EJERCICIO 1 FUNCIONES")
+        print("****CENTRAR TEXTO EJERCICIO 1 FUNCIONES***")
         texto=str(input("Ingrese el primer número: "))
         
         escribirCentrado(texto)
@@ -328,7 +313,7 @@ while(salir!=True):
         radio=float(input("Ingrese el radio de la circunferencia: "))
         perAreaCircunferencia(radio)  
     if opcion==7:
-        print("****LOGIN EJERCICIO 7 CONTROL DE FLUJO") 
+        print("****LOGIN EJERCICIO 7 FUNCIONES") 
         usuario()
     if opcion==8:
         print("****FACTORIAL DE UN NÚMERO EJERCICIO 8 FUNCIONES") 
@@ -339,7 +324,7 @@ while(salir!=True):
         print("****MCD DE UN NÚMERO EJERCICIO 9 FUNCIONES") 
         numero_1=int(input("Ingrese el primer número: "))
         numero_2=int(input("Ingrese el segundo número: "))
-        print(minimoComun(numero_1,numero_2) )
+        print(calcularMCD(numero_1,numero_2) )
     if opcion==10:
         print("****TIEMPOS EJERCICIO 10 FUNCIONES") 
         salir_1=True
@@ -361,7 +346,7 @@ while(salir!=True):
                 salir_1=False
 
     if opcion==11:
-        print("****INTERMEDIO EJERCICIO 4 FUNCIONES") 
+        print("****DÍA JULIANO EJERCICIO 11 FUNCIONES") 
         anio=int(input("Ingrese el anio: "))
         mes=int(input("Ingrese el mes: "))
         dia=int(input("Ingrese el día: "))
@@ -369,7 +354,7 @@ while(salir!=True):
 
         
     if opcion==12:
-        print("****LÍMITES NÚMEROS EJERCICIO 5 FUNCIONES") 
+        print("****OPERACIONES FRACCIONES EJERCICIO 12 FUNCIONES") 
         numerador_1=int(input("Ingrese el primer numerador: "))
         denominador_1=int(input("Ingrese el primer denominador: "))
         numerador_2=int(input("Ingrese el segundo numerador: "))
